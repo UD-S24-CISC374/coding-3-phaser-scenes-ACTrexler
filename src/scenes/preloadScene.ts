@@ -10,6 +10,7 @@ export default class PreloadScene extends Phaser.Scene {
             frameWidth: 32,
             frameHeight: 48,
         });
+        this.load.image("door", "assets/castledoors.png");
     }
 
     create() {
