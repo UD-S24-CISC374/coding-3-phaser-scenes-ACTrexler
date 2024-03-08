@@ -9,7 +9,7 @@ export default class SecondScene extends Phaser.Scene {
     private enteredFrom?: string;
 
     constructor() {
-        super({ key: "ThirdScene" });
+        super({ key: "FourthScene" });
     }
 
     init(data: { enteredFrom: string; prevScene: string }) {
@@ -17,42 +17,24 @@ export default class SecondScene extends Phaser.Scene {
     }
 
     create() {
-        console.log("starting third scene");
+        console.log("starting fourth scene");
         this.floor = this.add.tileSprite(500, 300, 1000, 600, "stoneFloor");
 
-        if (this.enteredFrom == "left") {
-            this.player = this.physics.add.sprite(200, 300, "player");
-        } else {
-            this.player = this.physics.add.sprite(800, 300, "player");
-        }
+        this.player = this.physics.add.sprite(200, 300, "player");
         this.player.setCollideWorldBounds(true);
         this.player.setScale(1.5);
 
         this.cursors = this.input.keyboard?.createCursorKeys();
 
-        this.rightDoor = this.physics.add.image(900, 300, "door");
         this.leftDoor = this.physics.add.image(100, 300, "door");
 
         this.physics.add.collider(
             this.player,
             this.leftDoor,
             () => {
-                this.scene.start("SecondScene", {
+                this.scene.start("ThirdScene", {
                     enteredFrom: "right",
-                    prevScene: "ThirdScene",
-                });
-            },
-            undefined,
-            this
-        );
-
-        this.physics.add.collider(
-            this.player,
-            this.rightDoor,
-            () => {
-                this.scene.start("FourthScene", {
-                    enteredFrom: "left",
-                    prevScene: "ThirdScene",
+                    prevScene: "FourthScene",
                 });
             },
             undefined,
