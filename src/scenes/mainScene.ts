@@ -30,6 +30,8 @@ export default class MainScene extends Phaser.Scene {
 
         this.rightDoor = this.physics.add.image(900, 300, "door");
 
+        this.add.text(810, 240, "Art Museum Entrance");
+
         this.physics.add.collider(
             this.player,
             this.rightDoor,

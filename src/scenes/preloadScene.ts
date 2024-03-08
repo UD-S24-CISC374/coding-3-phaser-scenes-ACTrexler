@@ -13,6 +13,7 @@ export default class PreloadScene extends Phaser.Scene {
         this.load.image("door", "assets/castledoors.png");
         this.load.image("stoneFloor", "assets/tilestonebricks.png");
         this.load.image("buddhaStatue", "assets/golden_buddha.png");
+        this.load.image("fujinStatue", "assets/fujin_statue.png");
     }
 
     create() {
