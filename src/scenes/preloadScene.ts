@@ -18,7 +18,7 @@ export default class PreloadScene extends Phaser.Scene {
 
     create() {
         this.createAnims();
-        this.scene.start("MainScene", {
+        this.scene.start("FirstScene", {
             enteredFrom: "left",
             prevScene: "PreloadScene",
         });

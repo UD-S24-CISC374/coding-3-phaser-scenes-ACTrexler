@@ -8,7 +8,7 @@ export default class MainScene extends Phaser.Scene {
     private enteredFrom?: string;
 
     constructor() {
-        super({ key: "MainScene" });
+        super({ key: "FirstScene" });
     }
 
     init(data: { enteredFrom: string; prevScene: string }) {

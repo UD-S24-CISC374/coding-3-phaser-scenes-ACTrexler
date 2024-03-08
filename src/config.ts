@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import MainScene from "./scenes/mainScene";
+import FirstScene from "./scenes/firstScene";
 import SecondScene from "./scenes/secondScene";
 import ThirdScene from "./scenes/thirdScene";
 import FourthScene from "./scenes/fourthScene";
@@ -20,7 +20,7 @@ export const CONFIG = {
         width: DEFAULT_WIDTH,
         height: DEFAULT_HEIGHT,
     },
-    scene: [PreloadScene, MainScene, SecondScene, ThirdScene, FourthScene],
+    scene: [PreloadScene, FirstScene, SecondScene, ThirdScene, FourthScene],
     physics: {
         default: "arcade",
         arcade: {

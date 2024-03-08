@@ -28,6 +28,8 @@ export default class SecondScene extends Phaser.Scene {
 
         this.leftDoor = this.physics.add.image(100, 300, "door");
 
+        this.add.text(20, 240, "Thank You for Visiting!");
+
         this.physics.add.collider(
             this.player,
             this.leftDoor,

@@ -41,7 +41,7 @@ export default class SecondScene extends Phaser.Scene {
             this.player,
             this.leftDoor,
             () => {
-                this.scene.start("MainScene", {
+                this.scene.start("FirstScene", {
                     enteredFrom: "right",
                     prevScene: "SecondScene",
                 });
