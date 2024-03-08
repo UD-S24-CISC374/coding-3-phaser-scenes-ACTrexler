@@ -9,7 +9,7 @@ export default class SecondScene extends Phaser.Scene {
     private enteredFrom?: string;
 
     constructor() {
-        super({ key: "SecondScene" });
+        super({ key: "ThirdScene" });
     }
 
     init(data: { enteredFrom: string; prevScene: string }) {
@@ -17,7 +17,7 @@ export default class SecondScene extends Phaser.Scene {
     }
 
     create() {
-        console.log("starting second scene");
+        console.log("starting third scene");
         this.floor = this.add.tileSprite(500, 300, 1000, 600, "stoneFloor");
 
         if (this.enteredFrom == "left") {
@@ -37,22 +37,9 @@ export default class SecondScene extends Phaser.Scene {
             this.player,
             this.leftDoor,
             () => {
-                this.scene.start("MainScene", {
+                this.scene.start("SecondScene", {
                     enteredFrom: "right",
-                    prevScene: "SecondScene",
-                });
-            },
-            undefined,
-            this
-        );
-
-        this.physics.add.collider(
-            this.player,
-            this.rightDoor,
-            () => {
-                this.scene.start("ThirdScene", {
-                    enteredFrom: "left",
-                    prevScene: "SecondScene",
+                    prevScene: "ThirdScene",
                 });
             },
             undefined,
