@@ -4,13 +4,16 @@ export default class MainScene extends Phaser.Scene {
     private player?: Phaser.Physics.Arcade.Sprite;
     private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
     private rightDoor?: Phaser.Physics.Arcade.Image;
+    private floor?: Phaser.GameObjects.TileSprite;
 
     constructor() {
         super({ key: "MainScene" });
     }
 
     create() {
-        this.player = this.physics.add.sprite(100, 450, "player");
+        this.floor = this.add.tileSprite(500, 300, 1000, 600, "stoneFloor");
+
+        this.player = this.physics.add.sprite(100, 300, "player");
         this.player.setCollideWorldBounds(true);
         this.player.setScale(1.5);
 
@@ -19,6 +22,19 @@ export default class MainScene extends Phaser.Scene {
         this.cursors = this.input.keyboard?.createCursorKeys();
 
         this.rightDoor = this.physics.add.image(900, 300, "door");
+
+        this.physics.add.collider(
+            this.player,
+            this.rightDoor,
+            () => {
+                this.scene.start("SecondScene", {
+                    enteredFrom: "left",
+                    prevScene: "MainScene",
+                });
+            },
+            undefined,
+            this
+        );
     }
 
     update() {
